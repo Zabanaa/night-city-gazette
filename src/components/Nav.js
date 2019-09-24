@@ -8,27 +8,27 @@ const Nav = () => {
             <ul className="night-city-nav__list">
 
                 <li className="night-city-nav__link">
-                    <i class="em-svg em-fire"></i>
+                    <i className="em-svg em-fire"></i>
                     <a href="/">Hot</a>
                 </li>
 
                 <li className="night-city-nav__link">
-                    <i class="em-svg em-newspaper"></i>
+                    <i className="em-svg em-newspaper"></i>
                     <a href="/">New</a>
                 </li>
 
                 <li className="night-city-nav__link">
-                    <i class="em-svg em-question"></i>
+                    <i className="em-svg em-question"></i>
                     <a href="/">Ask</a>
                 </li>
 
                 <li className="night-city-nav__link">
-                    <i class="em-svg em-nerd_face"></i>
+                    <i className="em-svg em-nerd_face"></i>
                     <a href="/">Jobs</a>
                 </li>
 
                 <li className="night-city-nav__link">
-                    <i class="em-svg em-eye"></i>
+                    <i className="em-svg em-eye"></i>
                     <a href="/">Show</a>
                 </li>
 

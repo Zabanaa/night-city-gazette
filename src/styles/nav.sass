@@ -1,18 +1,27 @@
+@import 'variables'
+
 .night-city-nav
     padding: .5em 0
+    background-color: lighten(gray, 47%)
 
 .night-city-nav__list
     display: flex
     justify-content: space-between
-    padding: 0 .5em
+    padding: 0 2em
+    font-family: $text-font
     
 .night-city-nav__link
 
     font-size: 14px
 
+    i
+        width: 15px
+        height: 15px
+
     a
         padding: 0 8px
+        color: $black
+        font-weight: bold
 
     &:last-child a 
         padding-right: 0
-        

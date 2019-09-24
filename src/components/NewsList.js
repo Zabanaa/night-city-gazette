@@ -1,9 +1,16 @@
 import React from 'react'
+import NewsItem from './NewsItem'
+import '../styles/newslist.sass'
+
+const arr = Array(30).fill(" ")
 
 const NewsList = () => (
     <main className="newsList">
-        // loop through all the data
-        // display a <NewsItem />
+        { arr.map( () => {
+            return (
+                <NewsItem />
+            )
+        })}
     </main>
 )
 
