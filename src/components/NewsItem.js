@@ -5,7 +5,7 @@ const NewsItem = () => {
     return (
         <article className="newsItem">
             <header className="newsItem__header">
-                <h2><a href="">Facebook to acquire startup for controlling computers with the mind.</a></h2>
+                <h2><a href="/helo">Facebook to acquire startup for controlling computers with the mind.</a></h2>
             </header>
             <ul className="newsItem__info">
                 <li>
