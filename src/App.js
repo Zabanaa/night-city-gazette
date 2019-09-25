@@ -2,7 +2,7 @@ import React from 'react';
 import Nav from './components/Nav'
 import Header from './components/Header'
 import NewsList from './components/NewsList'
-import { Provider, Consumer } from './context'
+import { Provider } from './context'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 const App = () => (
@@ -13,11 +13,11 @@ const App = () => (
         <div className="container">
           <Nav />
           <Switch>
-            <Route exact path="/" component={NewsList}/>
-            <Route exact path="/new" component={NewsList}/>
-            <Route exact path="/show" component={NewsList}/>
-            <Route exact path="/ask" component={NewsList}/>
-            <Route exact path="/jobs" component={NewsList}/>
+            <Route exact path="/" component={ props => <NewsList {...props}/>} />
+            <Route exact path="/new" component={ props => <NewsList {...props}/>} />
+            <Route exact path="/ask" component={ props => <NewsList {...props}/>} />
+            <Route exact path="/show" component={ props => <NewsList {...props}/>} />
+            <Route exact path="/jobs" component={ props => <NewsList {...props}/>} />
           </Switch>
         </div>
       </React.Fragment>
