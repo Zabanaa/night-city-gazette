@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from './components/Nav'
 import Header from './components/Header'
 import NewsList from './components/NewsList'
+import NotFound from './components/NotFound'
 import { Provider } from './context'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
@@ -18,6 +19,7 @@ const App = () => (
             <Route exact path="/ask" component={ props => <NewsList {...props}/>} />
             <Route exact path="/show" component={ props => <NewsList {...props}/>} />
             <Route exact path="/jobs" component={ props => <NewsList {...props}/>} />
+            <Route component={NotFound} /> 
           </Switch>
         </div>
       </React.Fragment>
