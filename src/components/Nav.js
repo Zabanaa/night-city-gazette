@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../emojis.css'
 import '../styles/nav.sass'
 
@@ -9,27 +10,27 @@ const Nav = () => {
 
                 <li className="night-city-nav__link">
                     <i className="em-svg em-fire"></i>
-                    <a href="/">Hot</a>
+                    <Link to="/">Hot</Link>
                 </li>
 
                 <li className="night-city-nav__link">
                     <i className="em-svg em-newspaper"></i>
-                    <a href="/">New</a>
+                    <Link to="/new">New</Link>
                 </li>
 
                 <li className="night-city-nav__link">
                     <i className="em-svg em-question"></i>
-                    <a href="/">Ask</a>
+                    <Link to="/ask">Ask</Link>
                 </li>
 
                 <li className="night-city-nav__link">
                     <i className="em-svg em-nerd_face"></i>
-                    <a href="/">Jobs</a>
+                    <Link to="/show">Show</Link>
                 </li>
 
                 <li className="night-city-nav__link">
                     <i className="em-svg em-eye"></i>
-                    <a href="/">Show</a>
+                    <Link to="/jobs">Jobs</Link>
                 </li>
 
             </ul>
