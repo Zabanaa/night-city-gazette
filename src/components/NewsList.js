@@ -8,11 +8,19 @@ class NewsList extends React.Component {
     API_URL = 'https://hacker-news.firebaseio.com/v0/'
 
     state = {
-        stories: null
+        stories: null,
+        pageNumber: 1
     }
     
     componentDidMount() {
         this.fetchStoriesFromHNAPI()
+    }
+
+    paginateStories(stories, pageNumber, pageSize=30) {
+       --pageNumber
+       const start = pageNumber * pageSize
+       const end = (pageNumber + 1)  * pageSize
+       return stories.slice(start, end)
     }
     
     getStoryEndpoint() {
