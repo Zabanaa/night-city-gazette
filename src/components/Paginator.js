@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import '../styles/paginator.sass'
 
 const Paginator = props => {
     const { 
@@ -10,18 +10,32 @@ const Paginator = props => {
 
     return (
         <nav className="paginator">
-            { 
-                pageNumber === 1 ? 
-                <a href={`?page=${pageNumber + 1}`}>More</a> : 
-                (
-                    isLastPage ?
-                    <a href={`?page=${pageNumber - 1}`}>Prev</a> : 
-                    <React.Fragment>
-                        <a href={`?page=${pageNumber - 1}`}>Prev</a>
+            <ul>
+                { 
+                    pageNumber === 1 ? 
+                    <li className="paginator__link link__more">
                         <a href={`?page=${pageNumber + 1}`}>More</a>
-                    </React.Fragment>
-                )
-            } 
+                        <i class="em em-arrow_right"></i>
+                    </li> :
+                    (
+                        isLastPage ?
+                        <li className="paginator__link link__prev">
+                            <i className="em em-arrow_left"></i>
+                            <a href={`?page=${pageNumber - 1}`}>Prev</a>
+                        </li> :
+                        <React.Fragment>
+                            <li className="paginator__link link__prev">
+                                <i className="em em-arrow_left"></i>
+                                <a href={`?page=${pageNumber - 1}`}>Prev</a>
+                            </li>
+                            <li className="paginator__link link__more">
+                                <a href={`?page=${pageNumber + 1}`}>More</a>
+                                <i className="em em-arrow_right"></i>
+                            </li>
+                        </React.Fragment>
+                    )
+                } 
+            </ul>
         </nav>
     )
 }
