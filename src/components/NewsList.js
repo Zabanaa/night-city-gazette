@@ -2,21 +2,29 @@ import React from 'react'
 import NewsItem from './NewsItem'
 import '../styles/newslist.sass'
 import axios from 'axios';
+import queryString from 'query-string'
+import Paginator from './Paginator'
 
 class NewsList extends React.Component {
 
-    API_URL = 'https://hacker-news.firebaseio.com/v0/'
-
-    state = {
-        stories: null,
-        pageNumber: 1
+    constructor(props) {
+        super(props)
+        this.state = {
+            stories: null,
+            lastPage: false,
+            pageNumber: parseInt(queryString.parse(this.props.location.search)['page']) || 1,
+        }
+        this.API_URL = 'https://hacker-news.firebaseio.com/v0/'
+        this.itemsPerPage = 30
+        this.currentPage = this.props.location.pathname
     }
+
     
     componentDidMount() {
         this.fetchStoriesFromHNAPI()
     }
 
-    paginateStories(stories, pageNumber, pageSize=30) {
+    paginateStories(stories, pageNumber, pageSize=this.itemsPerPage) {
        --pageNumber
        const start = pageNumber * pageSize
        const end = (pageNumber + 1)  * pageSize
@@ -25,7 +33,7 @@ class NewsList extends React.Component {
     
     getStoryEndpoint() {
         let endpoint
-        switch (this.props.location.pathname) {
+        switch (this.currentPage) {
             case '/':
                 endpoint = 'topstories'
                 break;
@@ -54,24 +62,35 @@ class NewsList extends React.Component {
 
     async fetchStoriesFromHNAPI() {
         const endpoint = this.getStoryEndpoint()
-        const topstories =  await axios.get(`${this.API_URL}${endpoint}.json`)
-        const storyIds = topstories.data.slice(0, 30);
+        const allstories =  await axios.get(`${this.API_URL}${endpoint}.json`)
+        const storyIds = this.paginateStories(allstories.data, this.state.pageNumber)
         const stories = await Promise.all(storyIds.map( storyId => this.fetchStoryData(storyId)))
-        this.setState({stories: stories})
+        this.setState({ 
+            stories: stories,
+            lastPage: stories.length < this.itemsPerPage
+
+        })
     }
 
     async fetchStoryData(storyId) {
-        const story = await axios.get(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json`)
+        const story = await axios.get(`${this.API_URL}/item/${storyId}.json`)
         return story.data
     }
 
     renderNewsList() {
         return (
-            <main className="newsList">
-                {this.state.stories.map( (story, idx) => (
-                    <NewsItem key={idx} story={story} />
-                ))}
-            </main>
+            <React.Fragment>
+                <main className="newsList">
+                    {this.state.stories.map( (story, idx) => (
+                        <NewsItem key={idx} story={story} />
+                    ))}
+                </main>
+                <Paginator 
+                    {...this.props}
+                    pageNumber={this.state.pageNumber}
+                    isLastPage={this.state.lastPage}
+                />
+            </React.Fragment>
         )
     }
 
