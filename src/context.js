@@ -8,10 +8,6 @@ export class Provider extends Component {
         newsItems: []
     }
 
-    componentWillMount() {
-        console.log(window.location.pathname)
-    }
-
     render() {
         return (
             <Context.Provider value={this.state}>

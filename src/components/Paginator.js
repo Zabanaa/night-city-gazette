@@ -5,7 +5,6 @@ const Paginator = props => {
     const { 
         pageNumber, 
         isLastPage, 
-        location: { pathname }
     } = props
 
     return (
@@ -15,7 +14,7 @@ const Paginator = props => {
                     pageNumber === 1 ? 
                     <li className="paginator__link link__more">
                         <a href={`?page=${pageNumber + 1}`}>More</a>
-                        <i class="em em-arrow_right"></i>
+                        <i className="em em-arrow_right"></i>
                     </li> :
                     (
                         isLastPage ?
