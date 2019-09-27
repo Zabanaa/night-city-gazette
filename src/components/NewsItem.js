@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../styles/newsitem.sass'
 
 const NewsItem = ({story}) => {
@@ -16,7 +17,7 @@ const NewsItem = ({story}) => {
                         </li>
                         <li>
                             <i className="em em-adult"></i>
-                            <span>{story.by}</span> 
+                            <span><Link to={`/user/${story.by}`}>{story.by}</Link></span> 
                         </li>
                         <li>
                             <i className="em em-clock1"></i> 
@@ -24,7 +25,7 @@ const NewsItem = ({story}) => {
                         </li>
                         <li>
                             <i className="em em-left_speech_bubble"></i>
-                            <span>{story.descendants}</span>
+                            <span><a href={`https://news.ycombinator.com/item?id=${story.id}`}>{story.descendants}</a></span>
                         </li>
                     </ul>
                 </React.Fragment>
