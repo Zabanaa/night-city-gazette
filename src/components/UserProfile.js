@@ -34,7 +34,6 @@ class UserProfile extends Component {
                 {/* <h3 className="userProfile__name">{profile.id}</h3> */}
                 <h2 className="userProfile__heading">ユーザープロファイル </h2>
                 <ul className="userProfile__info">
-                    {/* { profile.about && (<li>Bio: {profile.about}</li>)} */}
                     <li>
                         <i className="em em-bear"></i>
                         <span><strong>Name:</strong> {profile.id}</span>
@@ -51,6 +50,17 @@ class UserProfile extends Component {
                         <i className="em em-page_facing_up"></i>
                         <span><strong>Submissions:</strong> {profile.submitted.length}</span>
                     </li>
+                    { profile.about && (
+                        <React.Fragment>
+                            <li>
+                                <React.Fragment>
+                                    <i className="em em-blond-haired-man"></i>
+                                    <span> <strong>Bio: </strong> </span>
+                                </React.Fragment>
+                            </li>
+                            <div className="userProfile__bio" dangerouslySetInnerHTML={{__html: profile.about}}></div>
+                        </React.Fragment>
+                    )}
                 </ul>
             </main>
         )
