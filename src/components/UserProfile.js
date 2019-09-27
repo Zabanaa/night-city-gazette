@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import ProfileNotFound from './ProfileNotFound'
 import '../styles/userprofile.sass'
 
 class UserProfile extends Component {
@@ -8,7 +9,7 @@ class UserProfile extends Component {
         super(props)
         this.state = {
             userId: this.extractUserIdFromQueryParams(this.props.location.pathname),
-            profile: null
+            profile: undefined
         }
     }
 
@@ -28,7 +29,6 @@ class UserProfile extends Component {
     }
 
     renderProfile(profile) {
-        console.log(profile)
         return (
             <main className="userProfile">
                 {/* <h3 className="userProfile__name">{profile.id}</h3> */}
@@ -66,9 +66,19 @@ class UserProfile extends Component {
         )
     }
 
+    renderProfileNotFound() {
+        return <ProfileNotFound />
+    }
+
     render() {
-        if( this.state.profile != null ) {
-            return this.renderProfile(this.state.profile)
+        const { profile } = this.state
+        if(profile !== undefined) {
+            if(profile == null) {
+                return this.renderProfileNotFound()
+            }
+            else {
+                return this.renderProfile(this.state.profile)
+            }
         }
         else {
             return <span>Loading ...</span>
