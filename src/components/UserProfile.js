@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import ProfileNotFound from './ProfileNotFound'
+import Loading from './Loading'
 import '../styles/userprofile.sass'
 
 class UserProfile extends Component {
@@ -81,7 +82,7 @@ class UserProfile extends Component {
             }
         }
         else {
-            return <span>Loading ...</span>
+            return <Loading />
         }
     }
 }
