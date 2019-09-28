@@ -4,6 +4,8 @@ import '../styles/newslist.sass'
 import axios from 'axios';
 import queryString from 'query-string'
 import Paginator from './Paginator'
+import Loading from './Loading'
+import Error from './Error'
 
 class NewsList extends React.Component {
 
@@ -12,6 +14,7 @@ class NewsList extends React.Component {
         this.state = {
             stories: null,
             lastPage: false,
+            error: false,
             pageNumber: parseInt(queryString.parse(this.props.location.search)['page']) || 1,
         }
         this.API_URL = 'https://hacker-news.firebaseio.com/v0/'
@@ -62,14 +65,25 @@ class NewsList extends React.Component {
 
     async fetchStoriesFromHNAPI() {
         const endpoint = this.getStoryEndpoint()
-        const allstories =  await axios.get(`${this.API_URL}${endpoint}.json`)
-        const storyIds = this.paginateStories(allstories.data, this.state.pageNumber)
-        const stories = await Promise.all(storyIds.map( storyId => this.fetchStoryData(storyId)))
-        this.setState({ 
-            stories: stories,
-            lastPage: stories.length < this.itemsPerPage
 
-        })
+        try {
+            const allstories =  await axios.get(`${this.API_URL}${endpoint}.json`)
+            const storyIds = this.paginateStories(allstories.data, this.state.pageNumber)
+
+            try {
+                const stories = await Promise.all(storyIds.map( storyId => this.fetchStoryData(storyId)))
+                this.setState({ 
+                    stories: stories,
+                    lastPage: stories.length < this.itemsPerPage
+                })
+            } 
+            catch {
+                this.setState({stories: null, error: true})
+            }
+        } 
+        catch {
+            this.setState({stories: null, error: true})
+        }
     }
 
     async fetchStoryData(storyId) {
@@ -95,16 +109,22 @@ class NewsList extends React.Component {
     }
 
     renderLoadingScreen() {
-        return (
-            <span>Loading ...</span>
-        )
+        return <Loading />
+    }
+
+    renderErrorScreen() {
+        return <Error />
     }
 
     render() {
+
         if (this.state.stories != null) {
             return this.renderNewsList()
         }
         else {
+            if(this.state.error) {
+                return this.renderErrorScreen()
+            }
             return this.renderLoadingScreen()
         }
     }
