@@ -1,4 +1,5 @@
 import React from 'react'
+import { parseTime } from '../utils'
 import { Link } from 'react-router-dom'
 import '../styles/newsitem.sass'
 
@@ -21,7 +22,7 @@ const NewsItem = ({story}) => {
                         </li>
                         <li>
                             <i className="em em-clock1"></i> 
-                            <span>{story.time}</span>
+                            <span>{parseTime(story.time)}</span>
                         </li>
                         <li>
                             <i className="em em-left_speech_bubble"></i>
