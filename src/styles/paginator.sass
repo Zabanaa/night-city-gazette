@@ -1,9 +1,13 @@
 @import 'variables'
+@import 'utils/media-queries'
 
 .paginator
     ul
         padding: 0 2em 2em
         display: flex
+
+        +iphoneSE 
+            padding: 0 1em 1.5em
 
 
 .paginator__link

@@ -1,10 +1,14 @@
 @import 'variables'
+@import 'utils/media-queries'
+
 
 header.logo-header
-    padding: 1em 0
+    padding: 1em 2em 
     border-bottom: 1px solid #000
-    padding-left: 2em
     background-color: $black
+
+    +iphoneSE
+        padding: 1em 
 
     h1 
         font-size: 1.3em
@@ -13,3 +17,5 @@ header.logo-header
         font-weight: 700
         display: inline-block
 
+        a
+            color: inherit

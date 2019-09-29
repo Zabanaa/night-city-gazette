@@ -1,9 +1,14 @@
 @import 'variables'
+@import 'utils/media-queries'
 
 .userProfile
     padding: 2em
     max-width: 300px
     margin: 0 auto
+
+    +iphoneSE
+        padding: 1em
+
 
 .userProfile__heading
     font-family: $heading-font
@@ -14,10 +19,19 @@
     background-color: $pink
     color: white
 
+    +iphoneSE
+        font-size: 1.34em
+        text-align: center
+        padding: .5em 0
+
+
 
 .userProfile__info
     margin-top: 2em
     font-family: $text-font
+
+    +iphoneSE
+        margin-top: 1.5em
 
     li
         font-size: 1.06em
@@ -25,9 +39,17 @@
         display: flex
         align-items: center
 
+        +iphoneSE
+            font-size: .9em
+
         i
             width: 1.06em
             height: 1.06em
+
+            +iphoneSE
+
+                width: .9em
+                height: .9em
 
         span
             display: inline-block
@@ -45,4 +67,7 @@
     color: $gray
     line-height: 1.3
     padding-left: 1em
+    
+    +iphoneSE
+        font-size: .8em
 

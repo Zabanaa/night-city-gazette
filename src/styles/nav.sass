@@ -1,14 +1,24 @@
 @import 'variables'
+@import 'utils/media-queries'
 
 .night-city-nav
     padding: .5em 0
     background-color: lighten(gray, 47%)
+
+    +iphoneSE
+        padding: .75em 0
+
+
 
 .night-city-nav__list
     display: flex
     justify-content: space-between
     padding: 0 2em
     font-family: $text-font
+
+    +iphoneSE
+        padding: 0 1em
+
     
 .night-city-nav__link
 
@@ -25,3 +35,15 @@
 
     &:last-child a 
         padding-right: 0
+
+    +iphoneSE
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+
+        i
+            margin-bottom: 3px
+
+        a 
+            padding: 0

@@ -1,4 +1,5 @@
 @import 'variables'
+@import 'utils/media-queries'
 
 .newsItem
     margin-bottom: 1em
@@ -30,13 +31,16 @@
     display: flex
     font-size: 13px
     color: $gray
-
+    flex-wrap: wrap
 
     li
         display: flex
         align-items: center
         justify-content: space-between
         padding-right: 1em
+
+        +iphoneSE
+            line-height: 1.6
 
         i
             width: 14px
