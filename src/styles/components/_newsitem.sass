@@ -2,6 +2,9 @@
     margin-bottom: 1em
     font-family: $text-font
 
+    +tablet
+        margin-bottom: 1.5em
+
 .newsItem__header
     h2 
         display: inline
@@ -10,6 +13,9 @@
         font-weight: bold
         font-family: $heading-font
 
+        +tablet
+            font-size: 1.09em
+
         &.story-not-found
             color: $gray
             font-style: italic
@@ -17,6 +23,10 @@
             i
                 width: 1.06em
                 height: 1.06em
+
+                +tablet
+                    width: 1.09em
+                    height: 1.09em
 
         a
             color: inherit
@@ -29,6 +39,9 @@
     font-size: 13px
     color: $gray
     flex-wrap: wrap
+
+    +tablet
+        font-size: 14px
 
     li
         display: flex
@@ -44,7 +57,12 @@
             height: 14px
             padding-right: 8px
 
+            +tablet
+                margin-left: -5px
+
         a
             color: inherit
             text-decoration: underline
         
+.newsItem__id
+    display: none

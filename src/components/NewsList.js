@@ -96,7 +96,11 @@ class NewsList extends React.Component {
             <React.Fragment>
                 <main className="newsList">
                     {this.state.stories.map( (story, idx) => (
-                        <NewsItem key={idx} story={story} />
+                        <NewsItem 
+                            key={idx} 
+                            id={idx+1} 
+                            story={story} 
+                        />
                     ))}
                 </main>
                 <Paginator 
