@@ -63,6 +63,13 @@ class NewsList extends React.Component {
         return endpoint
     }
 
+    computeStoryId(storyIndex) {
+        const pageNumber = this.state.pageNumber - 1
+        const id = storyIndex + 1
+        return (pageNumber * this.itemsPerPage) + id
+    }
+
+
     async fetchStoriesFromHNAPI() {
         const endpoint = this.getStoryEndpoint()
 
@@ -98,7 +105,7 @@ class NewsList extends React.Component {
                     {this.state.stories.map( (story, idx) => (
                         <NewsItem 
                             key={idx} 
-                            id={idx+1} 
+                            id={this.computeStoryId(idx)} 
                             story={story} 
                         />
                     ))}
