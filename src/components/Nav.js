@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../emojis.css'
-import '../styles/nav.sass'
+// import '../styles/nav.sass'
 
 const Nav = () => {
     return (

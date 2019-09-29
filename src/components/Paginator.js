@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/paginator.sass'
+// import '../styles/paginator.sass'
 
 const Paginator = props => {
     const { 

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import ProfileNotFound from './ProfileNotFound'
 import Loading from './Loading'
-import '../styles/userprofile.sass'
+// import '../styles/userprofile.sass'
 
 class UserProfile extends Component {
 

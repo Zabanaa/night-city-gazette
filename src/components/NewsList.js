@@ -1,6 +1,6 @@
 import React from 'react'
 import NewsItem from './NewsItem'
-import '../styles/newslist.sass'
+// import '../styles/newslist.sass'
 import axios from 'axios';
 import queryString from 'query-string'
 import Paginator from './Paginator'

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/profilenotfound.sass'
+// import '../styles/profilenotfound.sass'
 
 const ProfileNotFound = () => {
     return (

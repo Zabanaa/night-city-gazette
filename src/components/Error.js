@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/error.sass'
+// import '../styles/error.sass'
 
 const Error = () => {
     return (

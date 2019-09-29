@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '../styles/notfound.sass'
+// import '../styles/notfound.sass'
 
 const NotFound = () => (
     <main className="notFound">

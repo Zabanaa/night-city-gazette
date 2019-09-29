@@ -1,7 +1,7 @@
 import React from 'react'
 import { parseTime } from '../utils'
 import { Link } from 'react-router-dom'
-import '../styles/newsitem.sass'
+// import '../styles/newsitem.sass'
 
 const NewsItem = ({story}) => {
     return (
