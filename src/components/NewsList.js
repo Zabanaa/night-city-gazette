@@ -101,6 +101,7 @@ class NewsList extends React.Component {
   renderNewsList() {
     return (
       <React.Fragment>
+        {console.log(this.state.stories)}
         <main className="newsList">
           {this.state.stories.map((story, idx) => (
             <NewsItem key={idx} id={this.computeStoryId(idx)} story={story} />

@@ -2,6 +2,10 @@ import React from "react";
 import { parseTime } from "../utils";
 import { Link } from "react-router-dom";
 
+const formatURL = storyId => {
+  return `https://news.ycombinator.com/item?id=${storyId}`;
+};
+
 const NewsItem = ({ id, story }) => {
   return (
     <article className="newsItem">
@@ -10,7 +14,10 @@ const NewsItem = ({ id, story }) => {
           <header className="newsItem__header">
             <h2>
               <span className="newsItem__id"> {id}.</span>
-              <a href={story.url}> {story.title}</a>
+              <a href={!story.url ? formatURL(story.id) : story.url}>
+                {" "}
+                {story.title}
+              </a>
             </h2>
           </header>
           <ul className="newsItem__info">
