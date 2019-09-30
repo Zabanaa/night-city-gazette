@@ -1,17 +1,16 @@
-import React from 'react'
-// import '../styles/loading.sass'
+import React from "react";
 
 const Loading = () => {
-    return (
-        <React.Fragment>
-            <main className="loader">
-                <span>
-                    Loading...
-                    <i className="em em-face_with_monocle"></i>
-                </span>
-            </main>
-        </React.Fragment>
-    )
-}
+  return (
+    <React.Fragment>
+      <main className="loader">
+        <span>
+          Loading...
+          <i className="em em-face_with_monocle"></i>
+        </span>
+      </main>
+    </React.Fragment>
+  );
+};
 
-export default Loading
+export default Loading;
