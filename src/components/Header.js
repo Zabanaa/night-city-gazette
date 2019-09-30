@@ -1,10 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const Header = () => (
   <header className="logo-header">
     <h1>
-      <Link to="/">ハッカーニュース</Link>
+      <a href="/">ハッカーニュース</a>
     </h1>
   </header>
 );
