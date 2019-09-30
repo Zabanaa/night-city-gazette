@@ -29,8 +29,7 @@ class UserProfile extends Component {
 
   renderProfile(profile) {
     return (
-      <main className="userProfile">
-        {/* <h3 className="userProfile__name">{profile.id}</h3> */}
+      <main className="userProfile container">
         <h2 className="userProfile__heading">ユーザープロファイル </h2>
         <ul className="userProfile__info">
           <li>

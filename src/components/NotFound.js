@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const NotFound = () => (
-  <main className="notFound">
+  <main className="notFound container">
     <div className="notFound__content">
       <p>
         Oops, Looks like you've lost your way ! There's nothing to see in this

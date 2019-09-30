@@ -2,7 +2,7 @@ import React from "react";
 
 const Error = () => {
   return (
-    <main className="error">
+    <main className="error container">
       <h2 className="error__heading">エラー</h2>
       <p>
         Looks like we are having trouble reaching out to the HN API.

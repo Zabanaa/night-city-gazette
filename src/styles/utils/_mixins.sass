@@ -2,3 +2,17 @@
     width: $size
     height: $size
     
+@mixin page-heading($color)
+    font-family: $logo-font
+    font-size: 1.69em
+    font-weight: bold
+    font-style: italic
+    text-align: center
+    padding: .5em
+    background-color: $color
+    color: white
+    margin-bottom: 1em
+
+    +iphoneSE
+        font-size: 1.34em
+        padding: .5em 0

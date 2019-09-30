@@ -1,5 +1,4 @@
 .userProfile
-    padding: 2em
     max-width: 300px
     margin: 0 auto
 
@@ -8,18 +7,7 @@
 
 
 .userProfile__heading
-    font-family: $heading-font
-    font-size: 1.69em
-    font-weight: bold
-    font-style: italic
-    padding: .5em
-    background-color: $pink
-    color: white
-
-    +iphoneSE
-        font-size: 1.34em
-        text-align: center
-        padding: .5em 0
+    +page-heading($pink)
 
 
 .userProfile__info
@@ -55,7 +43,6 @@
                 color: $black
         
 .userProfile__bio
-
     font-size: 14px
     overflow-wrap: break-word
     color: $gray
