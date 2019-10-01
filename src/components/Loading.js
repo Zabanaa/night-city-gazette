@@ -4,10 +4,12 @@ const Loading = () => {
   return (
     <React.Fragment>
       <main className="loader container">
-        <span>
-          Loading...
-          <i className="em em-face_with_monocle"></i>
-        </span>
+        <div className="page-content">
+          <span>
+            Loading...
+            <i className="em-svg em-face_with_monocle"></i>
+          </span>
+        </div>
       </main>
     </React.Fragment>
   );

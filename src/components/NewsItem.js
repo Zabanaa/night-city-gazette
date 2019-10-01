@@ -6,6 +6,11 @@ const formatURL = storyId => {
   return `https://news.ycombinator.com/item?id=${storyId}`;
 };
 
+const getStoryDomainName = storyURL => {
+  const domain = new URL(storyURL).hostname;
+  return domain.replace(/^www\./, "");
+};
+
 const NewsItem = ({ id, story }) => {
   return (
     <article className="newsItem">
@@ -13,9 +18,8 @@ const NewsItem = ({ id, story }) => {
         <React.Fragment>
           <header className="newsItem__header">
             <h2>
-              <span className="newsItem__id"> {id}.</span>
+              <span className="newsItem__id">{id}. </span>
               <a href={!story.url ? formatURL(story.id) : story.url}>
-                {" "}
                 {story.title}
               </a>
             </h2>
@@ -43,6 +47,12 @@ const NewsItem = ({ id, story }) => {
                 </a>
               </span>
             </li>
+            {story.url && (
+              <li className="newsItem__story-url">
+                <i className="em em-earth_africa"></i>
+                <span>{getStoryDomainName(story.url)}</span>
+              </li>
+            )}
           </ul>
         </React.Fragment>
       ) : (

@@ -30,50 +30,52 @@ class UserProfile extends Component {
   renderProfile(profile) {
     return (
       <main className="userProfile container">
-        <h2 className="userProfile__heading">ユーザープロファイル </h2>
-        <ul className="userProfile__info">
-          <li>
-            <i className="em em-bear"></i>
-            <span>
-              <strong>Name:</strong> {profile.id}
-            </span>
-          </li>
-          <li>
-            <i className="em em-spiral_calendar_pad"></i>
-            <span>
-              <strong>Joined:</strong> {profile.created}
-            </span>
-          </li>
-          <li>
-            <i className="em em-star"></i>
-            <span>
-              <strong>Karma:</strong> {profile.karma}
-            </span>
-          </li>
-          <li>
-            <i className="em em-page_facing_up"></i>
-            <span>
-              <strong>Submissions:</strong> {profile.submitted.length}
-            </span>
-          </li>
-          {profile.about && (
-            <React.Fragment>
-              <li>
-                <React.Fragment>
-                  <i className="em em-blond-haired-man"></i>
-                  <span>
-                    {" "}
-                    <strong>Bio: </strong>{" "}
-                  </span>
-                </React.Fragment>
-              </li>
-              <div
-                className="userProfile__bio"
-                dangerouslySetInnerHTML={{ __html: profile.about }}
-              ></div>
-            </React.Fragment>
-          )}
-        </ul>
+        <div className="userProfile__content page-content">
+          <h2 className="userProfile__heading">ユーザープロファイル </h2>
+          <ul className="userProfile__info">
+            <li>
+              <i className="em em-bear"></i>
+              <span>
+                <strong>Name:</strong> {profile.id}
+              </span>
+            </li>
+            <li>
+              <i className="em em-spiral_calendar_pad"></i>
+              <span>
+                <strong>Joined:</strong> {profile.created}
+              </span>
+            </li>
+            <li>
+              <i className="em em-star"></i>
+              <span>
+                <strong>Karma:</strong> {profile.karma}
+              </span>
+            </li>
+            <li>
+              <i className="em em-page_facing_up"></i>
+              <span>
+                <strong>Submissions:</strong> {profile.submitted.length}
+              </span>
+            </li>
+            {profile.about && (
+              <React.Fragment>
+                <li>
+                  <React.Fragment>
+                    <i className="em em-blond-haired-man"></i>
+                    <span>
+                      {" "}
+                      <strong>Bio: </strong>{" "}
+                    </span>
+                  </React.Fragment>
+                </li>
+                <div
+                  className="userProfile__bio"
+                  dangerouslySetInnerHTML={{ __html: profile.about }}
+                ></div>
+              </React.Fragment>
+            )}
+          </ul>
+        </div>
       </main>
     );
   }

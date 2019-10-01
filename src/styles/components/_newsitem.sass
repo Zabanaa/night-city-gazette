@@ -5,6 +5,9 @@
     +tablet
         margin-bottom: 1.5em
 
+    +desktop-up
+        margin-bottom: 2.5em
+
 .newsItem__header
     h2 
         display: inline
@@ -13,8 +16,12 @@
         font-weight: bold
         font-family: $heading-font
 
-        +tablet
+        +tablet-up
             font-size: 1.09em
+
+        +desktop-up
+            line-height: 1
+            font-size: 1.19em
 
         &.story-not-found
             color: $gray
@@ -23,13 +30,16 @@
             i
                 +size(1.06em)
 
-                +tablet
+                +tablet-up
                     +size(1.09em)
-
 
         a
             color: inherit
 
+            +desktop-up
+
+                &:hover
+                    text-decoration: underline
 
 
 .newsItem__info
@@ -41,12 +51,21 @@
 
     +tablet
         font-size: 14px
+    
+    +desktop-up
+        font-size: 15px
 
     li
         display: flex
         align-items: center
         justify-content: space-between
         padding-right: 1em
+
+        &.newsItem__story-url
+            display: none
+
+            +desktop-up
+                display: inline-block
 
         +iphoneSE
             line-height: 1.6
@@ -55,15 +74,14 @@
             +size(14px)
             padding-right: 8px
 
-            +tablet
+            +tablet-up
                 margin-left: -5px
+            
+            +desktop-up
+                +size(16px)
+                margin-left: -10px
+                padding-right: 16px
 
         a
             color: inherit
             text-decoration: underline
-        
-.newsItem__id
-    display: none
-
-    +tablet
-        display: inline-block

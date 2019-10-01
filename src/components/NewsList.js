@@ -100,18 +100,18 @@ class NewsList extends React.Component {
 
   renderNewsList() {
     return (
-      <React.Fragment>
-        <main className="newsList">
+      <main className="newsList">
+        <React.Fragment>
           {this.state.stories.map((story, idx) => (
             <NewsItem key={idx} id={this.computeStoryId(idx)} story={story} />
           ))}
-        </main>
+        </React.Fragment>
         <Paginator
           {...this.props}
           pageNumber={this.state.pageNumber}
           isLastPage={this.state.lastPage}
         />
-      </React.Fragment>
+      </main>
     );
   }
 

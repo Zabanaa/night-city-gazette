@@ -1,11 +1,10 @@
 .paginator
     ul
-        padding: 0 2em 2em
+        padding: 1em 0 
         display: flex
-
-        +iphoneSE 
-            padding: 0 1em 1.5em
-
+        
+        +desktop-up
+            padding: 1em 0 2em 
 
 .paginator__link
     font-family: $text-font
@@ -13,6 +12,7 @@
     font-weight: bold
     margin-right: .8em
     text-decoration: underline
+    transition: transform .2s ease-out
 
     i
         +size(14px)
@@ -20,8 +20,16 @@
     a
         color: $black
 
-.link__prev a 
-    margin-left: 5px
+.link__prev 
+    a 
+        margin-left: 5px
 
-.link__more a 
-    margin-right: 5px
+    &:hover
+        transform: translateX(-4px)
+
+.link__more 
+    a 
+        margin-right: 5px
+
+    &:hover
+        transform: translateX(4px)
