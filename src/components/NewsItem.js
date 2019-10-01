@@ -1,15 +1,6 @@
 import React from "react";
-import { parseTime } from "../utils";
+import { parseTime, formatURL, getStoryDomainName } from "../utils";
 import { Link } from "react-router-dom";
-
-const formatURL = storyId => {
-  return `https://news.ycombinator.com/item?id=${storyId}`;
-};
-
-const getStoryDomainName = storyURL => {
-  const domain = new URL(storyURL).hostname;
-  return domain.replace(/^www\./, "");
-};
 
 const NewsItem = ({ id, story }) => {
   return (
