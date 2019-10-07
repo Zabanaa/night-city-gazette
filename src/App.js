@@ -3,6 +3,7 @@ import Nav from "./components/Nav";
 import Header from "./components/Header";
 import NewsList from "./components/NewsList";
 import NotFound from "./components/NotFound";
+import AskHN from "./components/AskHN";
 import UserProfile from "./components/UserProfile";
 import { Provider } from "./context";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -29,6 +30,11 @@ const App = () => (
               exact
               path="/ask"
               component={props => <NewsList {...props} />}
+            />
+            <Route
+              exact
+              path="/ask/:id"
+              component={props => <AskHN {...props} />}
             />
             <Route
               exact
