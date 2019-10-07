@@ -1,5 +1,5 @@
 import React from "react";
-import { parseTime, formatURL, getStoryDomainName } from "../utils";
+import { timeAgo, formatURL, getStoryDomainName } from "../utils";
 import { Link } from "react-router-dom";
 
 const NewsItem = ({ id, story }) => {
@@ -28,7 +28,7 @@ const NewsItem = ({ id, story }) => {
             </li>
             <li>
               <i className="em em-clock1"></i>
-              <span>{parseTime(story.time)}</span>
+              <span>{timeAgo(story.time)}</span>
             </li>
             <li>
               <i className="em em-left_speech_bubble"></i>

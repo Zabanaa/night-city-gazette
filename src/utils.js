@@ -1,4 +1,4 @@
-export const parseTime = unixTimeStamp => {
+export const timeAgo = unixTimeStamp => {
   const now = Math.floor(Date.now() / 1000);
   const publicationDate = new Date(unixTimeStamp).getTime();
   const secondsElapsedSincePublication = now - publicationDate;
@@ -24,4 +24,9 @@ export const formatURL = storyId => {
 export const getStoryDomainName = storyURL => {
   const domain = new URL(storyURL).hostname;
   return domain.replace(/^www\./, "");
+};
+
+export const extractIdFromURL = path => {
+  const split_url = path.split("/");
+  return split_url[split_url.length - 1];
 };

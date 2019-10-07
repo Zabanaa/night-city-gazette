@@ -5,6 +5,7 @@ import queryString from "query-string";
 import Paginator from "./Paginator";
 import Loading from "./Loading";
 import Error from "./Error";
+import { API_URL } from "../utils/constants";
 
 class NewsList extends React.Component {
   constructor(props) {
@@ -16,7 +17,6 @@ class NewsList extends React.Component {
       pageNumber:
         parseInt(queryString.parse(this.props.location.search)["page"]) || 1
     };
-    this.API_URL = "https://hacker-news.firebaseio.com/v0/";
     this.itemsPerPage = 30;
     this.currentPage = this.props.location.pathname;
   }
@@ -61,7 +61,7 @@ class NewsList extends React.Component {
     return endpoint;
   }
 
-  computeStoryId(storyIndex) {
+  _computeStoryId(storyIndex) {
     const pageNumber = this.state.pageNumber - 1;
     const id = storyIndex + 1;
     return pageNumber * this.itemsPerPage + id;
@@ -71,7 +71,7 @@ class NewsList extends React.Component {
     const endpoint = this.getStoryEndpoint();
 
     try {
-      const allstories = await axios.get(`${this.API_URL}${endpoint}.json`);
+      const allstories = await axios.get(`${API_URL}${endpoint}.json`);
       const storyIds = this.paginateStories(
         allstories.data,
         this.state.pageNumber
@@ -94,7 +94,7 @@ class NewsList extends React.Component {
   }
 
   async fetchStoryData(storyId) {
-    const story = await axios.get(`${this.API_URL}/item/${storyId}.json`);
+    const story = await axios.get(`${API_URL}/item/${storyId}.json`);
     return story.data;
   }
 
@@ -103,7 +103,7 @@ class NewsList extends React.Component {
       <main className="newsList">
         <React.Fragment>
           {this.state.stories.map((story, idx) => (
-            <NewsItem key={idx} id={this.computeStoryId(idx)} story={story} />
+            <NewsItem key={idx} id={this._computeStoryId(idx)} story={story} />
           ))}
         </React.Fragment>
         <Paginator
