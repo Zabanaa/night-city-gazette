@@ -36,24 +36,32 @@ class AskHN extends Component {
         <div className="askhn__content page__content">
           <h2 className="askhn__heading">{story.title}</h2>
           <ul className="askhn__meta">
-            <li>
-              <i className="em-svg em-fire"></i>
-              <span>{story.score}</span>
-            </li>
-            <li>
-              <i className="em-svg em-man"></i>
-              <span>
-                <a href={linkToUserProfile(story.by)}>{story.by}</a>
-              </span>
-            </li>
-            <li>
-              <i className="em-svg em-clock1"></i>
-              <span>{timeAgo(story.time)}</span>
-            </li>
-            <li>
-              <i className="em-svg em-left_speech_bubble"></i>
-              <span>{story.descendants}</span>
-            </li>
+            {story.score && (
+              <li>
+                <i className="em-svg em-fire"></i>
+                <span>{story.score}</span>
+              </li>
+            )}
+            {story.by && (
+              <li>
+                <i className="em-svg em-man"></i>
+                <span>
+                  <a href={linkToUserProfile(story.by)}>{story.by}</a>
+                </span>
+              </li>
+            )}
+            {story.time && (
+              <li>
+                <i className="em-svg em-clock1"></i>
+                <span>{timeAgo(story.time)}</span>
+              </li>
+            )}
+            {story.descendants && (
+              <li>
+                <i className="em-svg em-left_speech_bubble"></i>
+                <span>{story.descendants}</span>
+              </li>
+            )}
           </ul>
           <article
             className="askhn__body"
