@@ -30,3 +30,6 @@ export const extractIdFromURL = path => {
   const split_url = path.split("/");
   return split_url[split_url.length - 1];
 };
+
+export const linkToUserProfile = userId =>
+  `https://news.ycombinator.com/user?id=${userId}`;
