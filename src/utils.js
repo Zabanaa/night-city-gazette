@@ -18,7 +18,7 @@ export const timeAgo = unixTimeStamp => {
 };
 
 export const formatURL = storyId => {
-  return `https://news.ycombinator.com/item?id=${storyId}`;
+  return `/ask/${storyId}`;
 };
 
 export const getStoryDomainName = storyURL => {

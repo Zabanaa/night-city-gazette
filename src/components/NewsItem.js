@@ -10,7 +10,13 @@ const NewsItem = ({ id, story }) => {
           <header className="newsItem__header">
             <h2>
               <span className="newsItem__id">{id}. </span>
-              <a href={!story.url ? formatURL(story.id) : story.url}>
+              <a
+                href={
+                  !story.url && story.type === "story"
+                    ? formatURL(story.id)
+                    : story.url
+                }
+              >
                 {story.title}
               </a>
             </h2>
