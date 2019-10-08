@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { API_URL } from "../utils/constants";
-import { extractIdFromURL, timeAgo } from "../utils";
+import Loading from "./Loading";
+import StoryNotFound from "./StoryNotFound";
+
+import {
+  extractIdFromURL,
+  timeAgo,
+  formatURL,
+  linkToUserProfile
+} from "../utils";
 
 class AskHN extends Component {
   constructor(props) {
@@ -24,38 +32,48 @@ class AskHN extends Component {
   renderPage() {
     const { story } = this.state;
     return (
-      <main>
-        <h2>{story.title}</h2>
-        <ul>
-          <li>
-            <i className="em-svg em-fire"></i>
-            <span>{story.score}</span>
-          </li>
-          <li>
+      <main className="askhn container">
+        <div className="askhn__content page__content">
+          <h2 className="askhn__heading">{story.title}</h2>
+          <ul className="askhn__meta">
+            <li>
+              <i className="em-svg em-fire"></i>
+              <span>{story.score}</span>
+            </li>
+            <li>
+              <i className="em-svg em-man"></i>
+              <span>
+                <a href={linkToUserProfile(story.by)}>{story.by}</a>
+              </span>
+            </li>
+            <li>
+              <i className="em-svg em-clock1"></i>
+              <span>{timeAgo(story.time)}</span>
+            </li>
+            <li>
+              <i className="em-svg em-left_speech_bubble"></i>
+              <span>{story.descendants}</span>
+            </li>
+          </ul>
+          <article
+            className="askhn__body"
+            dangerouslySetInnerHTML={{ __html: story.text }}
+          ></article>
+          <a className="askhn__link" href={formatURL(story.id)}>
             <i className="em-svg em-left_speech_bubble"></i>
-            <span>{story.descendants}</span>
-          </li>
-          <li>
-            <i className="em-svg em-clock1"></i>
-            <span>{timeAgo(story.time)}</span>
-          </li>
-          <li>
-            <i className="em-svg em-man"></i>
-            <span>{story.by}</span>
-          </li>
-        </ul>
-        <article dangerouslySetInnerHTML={{ __html: story.text }}></article>
+            <span>Add a comment</span>
+          </a>
+        </div>
       </main>
     );
   }
 
-  renderError() {
-    return <p>This story does not exist sorry.</p>;
-  }
-
   render() {
-    if (!this.state.story || this.state.story === null) {
-      return this.renderError();
+    if (this.state.story === undefined) {
+      return <Loading />;
+    }
+    if (this.state.story === null) {
+      return <StoryNotFound />;
     } else {
       return this.renderPage();
     }

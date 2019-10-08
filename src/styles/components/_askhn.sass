@@ -1,0 +1,89 @@
+.askhn
+    +iphoneSE
+        padding: 1em  !important
+    
+.askhn__content 
+
+    +desktop-up
+        max-width: 46em 
+        margin: 0 auto
+
+    h2
+        font-family: $heading-font
+        font-size: 1.06em
+        line-height: 1.42
+        font-weight: bold
+
+        +desktop-up
+            font-size: 1.3em
+            line-height: 1
+    
+.askhn__meta
+    margin-top: 1em
+    margin-bottom: 2em
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    +tablet-up
+        justify-content: flex-start
+    
+
+.askhn__meta li
+    font-size: 13px
+    display: flex
+    align-items: center
+    color: $gray
+
+    +tablet-up
+        margin-right: 1em
+
+    +desktop-up
+        font-size: 14px
+
+    i
+        +size(13px)
+
+        +desktop-up
+            +size(14px)
+    
+    span
+        padding-left: 4px
+    
+    a
+        color: inherit
+        text-decoration: underline
+
+.askhn__body
+
+    font-size: 14px
+    line-height: 1.22
+
+    +desktop-up
+        line-height: 1.6
+
+    p
+        margin-bottom: 1em
+
+        &:first-child
+            margin-top: 1em
+
+.askhn__link
+    display: block
+    font-family: $heading-font
+    color: $black
+    font-weight: bold
+    font-size: 1.06em
+    text-decoration: underline
+
+    span
+        padding-left: 4px
+
+    i
+        +size(1.06em)
+    
+    +tablet-up
+        margin-top: 1em
+
+    +desktop-up
+        margin-top: 2.5em
