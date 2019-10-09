@@ -7,8 +7,8 @@ import StoryNotFound from "./StoryNotFound";
 import {
   extractIdFromURL,
   timeAgo,
-  formatURL,
-  linkToUserProfile
+  linkToUserProfile,
+  linkToStoryOnHN
 } from "../utils";
 
 class AskHN extends Component {
@@ -67,7 +67,7 @@ class AskHN extends Component {
             className="askhn__body"
             dangerouslySetInnerHTML={{ __html: story.text }}
           ></article>
-          <a className="askhn__link" href={formatURL(story.id)}>
+          <a className="askhn__link" href={linkToStoryOnHN(story.id)}>
             <i className="em-svg em-left_speech_bubble"></i>
             <span>Add a comment</span>
           </a>

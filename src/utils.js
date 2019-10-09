@@ -21,6 +21,9 @@ export const formatURL = storyId => {
   return `/ask/${storyId}`;
 };
 
+export const linkToStoryOnHN = storyId =>
+  `https://news.ycombinator.com/item?id=${storyId}`;
+
 export const getStoryDomainName = storyURL => {
   const domain = new URL(storyURL).hostname;
   return domain.replace(/^www\./, "");
