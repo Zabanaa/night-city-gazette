@@ -12,24 +12,30 @@
     font-weight: bold
     margin-right: .8em
     text-decoration: underline
-    transition: transform .2s ease-out
+    background-color: #f0f0f0
+    padding: 1em 1.5em
+    border-radius: 5px
 
     i
         +size(14px)
+        transition: transform 170ms ease-out
 
     a
         color: $black
+    
 
 .link__prev 
+
     a 
         margin-left: 5px
 
-    &:hover
+    &:hover i, a
         transform: translateX(-4px)
 
 .link__more 
+
     a 
         margin-right: 5px
 
-    &:hover
+    &:hover i
         transform: translateX(4px)
